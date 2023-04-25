@@ -1,4 +1,3 @@
-from UI_test.UI_Test_3.MY_python_pytest.src.common.web_page_template import WebPageTemplate
 from UI_test.UI_Test_3.MY_python_pytest.src.pages.base_page import BasePage
 from UI_test.UI_Test_3.MY_python_pytest.src.locators.drag_page_locators import DragPageLocators
 from selenium.webdriver.common.by import By
