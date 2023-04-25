@@ -7,7 +7,6 @@ class TestDynamic:
     def test_drag_drop(self, webdriver_handler):
         drag = DragPage(webdriver_handler)
         drag.open_site()
-        time.sleep(15)
         drag.drag_drop()
         # drag.drag_drop_offset()
 
