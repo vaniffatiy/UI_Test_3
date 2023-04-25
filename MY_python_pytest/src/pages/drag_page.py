@@ -15,6 +15,12 @@ class DragPage(BasePage):
     def drag_drop(self):
         self.drag_and_drop(DragPageLocators.SOURCE_IMG, DragPageLocators.TRASH_FIELD)
 
+    def drag_drop_offset(self):
+        source = DragPageLocators.SOURCE_IMG2
+        x = DragPageLocators.OFFSET["xoffset"]
+        y = DragPageLocators.OFFSET["yoffset"]
+        self.drag_and_drop_offset(source, x, y)
+
     def refresh(self):
         self.refresh()
 

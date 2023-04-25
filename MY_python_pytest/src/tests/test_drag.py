@@ -4,11 +4,12 @@ import time
 
 class TestDynamic:
 
-    def test_dynamic_id(self, webdriver_handler):
+    def test_drag_drop(self, webdriver_handler):
         drag = DragPage(webdriver_handler)
         drag.open_site()
         time.sleep(6)
         drag.drag_drop()
+        drag.drag_drop_offset()
 
 
 
