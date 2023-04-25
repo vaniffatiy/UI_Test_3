@@ -16,7 +16,7 @@ class WebDriverHandler:
                 "Unable to identify test browser. Set the environment variable {TEST_BROWSER} with one of the values: chrome,firefox")
         if browser_to_use == "chrome":
             chrome_options = webdriver.ChromeOptions()
-            chrome_options.add_argument("--headless") # comment if you want to use headless mode
+            # chrome_options.add_argument("--headless") # comment if you want to use headless mode
             chrome_options.add_argument("--disable-extensions")
             chrome_options.add_argument("--window-size=1420,1080")
             chrome_options.add_argument("--incognito")
@@ -30,8 +30,8 @@ class WebDriverHandler:
             self.web_driver_instance = webdriver.Chrome(desired_capabilities=chrome_options.to_capabilities())
             self.web_driver_instance.delete_all_cookies()  # we want to start fresh
 
-    def find_element(self, selector):
-        element = self.web_driver_instance.find_element(selector)
+    def find_element(self, *selector):
+        element = self.web_driver_instance.find_element(*selector)
         return element
 
     def visit(self, url):
@@ -51,10 +51,9 @@ class WebDriverHandler:
         button_check = WebDriverWait(self.web_driver_instance, 20).until(EC.visibility_of_element_located(by_locator))
         return bool(button_check)
 
-
     def find_element_with_explicit_wait(self, selector, timeout=15):
         element = WebDriverWait(self.web_driver_instance, timeout).until(
-            lambda x: x.find_element_find_element(selector))
+            lambda x: x.find_element(selector))
         return element
 
     def is_element_stale(self, element):

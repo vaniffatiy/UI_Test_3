@@ -6,3 +6,5 @@ class Config:
     app_host = "http://uitestingplayground.com/"
 
     api_host = "http://localhost:3000"
+
+
