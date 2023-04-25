@@ -1,9 +1,4 @@
-from UI_test.UI_Test_3.MY_python_pytest.src.common.webdriver_handler import WebDriverHandler
 from UI_test.UI_Test_3.MY_python_pytest.src.pages.drag_page import DragPage
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium import webdriver
 import time
 
 
