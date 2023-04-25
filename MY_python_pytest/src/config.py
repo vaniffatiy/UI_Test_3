@@ -2,9 +2,9 @@ import os
 
 
 class Config:
-    browser = os.getenv('TEST_BROWSER', "chrome")  # will take browser from env variables or use "chrome" as default
-    app_host = "http://uitestingplayground.com/"
+    browser = os.getenv('TEST_BROWSER', "chrome")
+    app_host1 = "http://uitestingplayground.com/"
+    app_host2 = "https://www.globalsqa.com/demo-site/draganddrop/"
 
-    api_host = "http://localhost:3000"
 
 

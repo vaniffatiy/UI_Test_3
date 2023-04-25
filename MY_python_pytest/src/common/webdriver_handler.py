@@ -1,9 +1,10 @@
-
 from selenium import webdriver
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver.support.wait import WebDriverWait
 from UI_test.UI_Test_3.MY_python_pytest.src.config import Config
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.by import By
 
 
 class WebDriverHandler:
@@ -30,9 +31,15 @@ class WebDriverHandler:
             self.web_driver_instance = webdriver.Chrome(desired_capabilities=chrome_options.to_capabilities())
             self.web_driver_instance.delete_all_cookies()  # we want to start fresh
 
-    def find_element(self, *selector):
-        element = self.web_driver_instance.find_element(*selector)
+    def find_element(self, selector):
+        element = self.web_driver_instance.find_element(By.XPATH, selector)
         return element
+
+    def drag_drop(self, selector_source, selector_target):
+        action = ActionChains(self.web_driver_instance)
+        source = self.find_element(selector_source)
+        target = self.find_element(selector_target)
+        action.drag_and_drop(source, target)
 
     def visit(self, url):
         self.web_driver_instance.get(url)
@@ -56,19 +63,10 @@ class WebDriverHandler:
             lambda x: x.find_element(selector))
         return element
 
-    def is_element_stale(self, element):
-        try:
-            # Calling any method forces a staleness check
-            element.is_enabled()
-            return False
-        except StaleElementReferenceException:
-            return True
-
     def quit(self):
         self.web_driver_instance.quit()
 
     def close(self):
         self.web_driver_instance.close()
 
-    def select_tab(self, index):
-        self.web_driver_instance.switch_to.window(self.web_driver_instance.window_handles[index])
+
