@@ -8,7 +8,7 @@ def step_impl(context, webdriver_handler):
     drag.open_site()
 
 
-@then(u'we activate "drag and drop" function both end_to_end and by offset')
+@then(u'we activate "drag and drop" function both source_to_target and by offset')
 def step_impl(context, webdriver_handler):
     drag = DragPage(webdriver_handler)
     drag.drag_drop()
