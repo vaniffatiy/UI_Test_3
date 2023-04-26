@@ -6,6 +6,7 @@ class DragPageLocators:
     SOURCE_IMG = '//img[@id="angular"]'
     TRASH_FIELD = '//div[@id="droparea"]'
     SOURCE_IMG2 = '//img[@id="mongo"]'
-    OFFSET = {"xoffset": 20, "yoffest": 0}
+    OFFSET = {"xoffset": 30, "yoffset": 50}
+    print(OFFSET["yoffset"])
 
 
