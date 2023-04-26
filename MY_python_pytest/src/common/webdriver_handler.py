@@ -43,7 +43,8 @@ class WebDriverHandler:
 
     def drag_drop_offset(self, selector_source, xoff, yoff):
         action = ActionChains(self.web_driver_instance)
-        action.drag_and_drop_by_offset(selector_source, xoff, yoff).perform()
+        source = self.find_element(selector_source)
+        action.drag_and_drop_by_offset(source, xoff, yoff).perform()
 
     def visit(self, url):
         self.web_driver_instance.get(url)

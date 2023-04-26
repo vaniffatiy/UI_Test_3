@@ -14,7 +14,7 @@ class BasePage(WebPageTemplate):
         self.web_driver_handler.drag_drop(selector_source, selector_target)
 
     def drag_and_drop_offset(self, selector_source, xoff, yoff):
-        self.web_driver_handler.drag_drop(selector_source, xoff, yoff)
+        self.web_driver_handler.drag_drop_offset(selector_source, xoff, yoff)
 
     def find_element(self, *selector):
         element = self.web_driver_handler.find_element(*selector)
